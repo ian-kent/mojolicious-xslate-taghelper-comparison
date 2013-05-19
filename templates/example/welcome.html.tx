@@ -1,0 +1,15 @@
+xslate
+:# built-in, always have to call using $c and all get html escaped
+: $c.form_for($c.url_for(), method => 'POST')
+: $c.begin()
+: $c.text_field(name => 'name')
+: $c.submit_button()
+: $c.end()
+
+:# function, have to set context, no escaping issues
+: ctx($c)
+: form_for(url => '/', method => 'POST')
+: begin()
+: text_field(name => 'name')
+: submit_button()
+: end()
